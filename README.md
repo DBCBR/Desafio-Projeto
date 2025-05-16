@@ -35,7 +35,7 @@ O herói David é do nível ouro com 3500 xp.
 
 ## Código Principal
 
-````python
+```python
 nome = input("Digite o nome do herói: ")
 xp = int(input("Digite a quantidade de xp do herói: "))
 
@@ -50,10 +50,15 @@ for i in range(len(limites)):
         break
 
 print(f"O herói {nome} é do nível {nivel} com {xp} xp.")
+```
 
-Regras do Desafio
+## Regras do Desafio
 
-* Utilizar apenas variáveis, operadores, laços de repetição e estruturas de decisão.
-* Não utilizar funções, listas avançadas, bibliotecas externas ou recursos além dos permitidos.
-Autor
+- O programa deve solicitar o nome e a quantidade de XP do herói ao usuário.
+- A classificação deve ser feita conforme os intervalos de XP definidos.
+- Exibir o resultado da classificação na tela de forma clara.
+- Manter o código simples e de fácil compreensão.
+
+## Autor
+
 Projeto desenvolvido por David Barcellos Cardoso para o desafio da DIO.
