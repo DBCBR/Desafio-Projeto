@@ -4,6 +4,8 @@
 
 Este projeto consiste em dois programas simples em Python que classificam o nível de um herói com base na quantidade de experiência (XP) ou no saldo de partidas ranqueadas (vitórias - derrotas). O objetivo é praticar conceitos básicos de programação, utilizando apenas variáveis, operadores, laços de repetição, estruturas de decisão e funções, conforme as restrições do desafio proposto pela DIO.
 
+Além disso, o projeto inclui uma implementação de classe para heróis, permitindo criar diferentes tipos de heróis e simular ataques de acordo com o tipo.
+
 ## Funcionalidades
 
 - Solicita ao usuário o nome do herói.
@@ -20,11 +22,14 @@ Este projeto consiste em dois programas simples em Python que classificam o nív
   - Challenger
   - Imortal
 - Exibe o resultado da classificação na tela.
+- Permite criar heróis com nome, idade e tipo.
+- Permite simular ataques de acordo com o tipo do herói.
 
 ## Lógica Utilizada
 
 - Para classificação por XP, o programa utiliza uma lista de limites de XP e uma lista correspondente de níveis. Um laço de repetição percorre os limites e, ao encontrar o intervalo correto, define o nível do herói. Caso o XP seja maior que todos os limites, o nível padrão é "imortal".
 - Para classificação por saldo de partidas, o programa calcula o saldo (vitórias - derrotas) e utiliza a mesma lógica de limites para definir o nível.
+- Para a classe de herói, o tipo define o ataque realizado, utilizando condicionais para determinar a arma ou magia usada.
 
 ## Exemplo de Uso
 
@@ -43,6 +48,22 @@ Digite o nome do herói: Ana
 Digite a quantidade de vitórias do herói: 25
 Digite a quantidade de derrotas do herói: 5
 O herói Ana tem saldo de 20 e está no nível bronze.
+```
+
+### Classe de Herói e Ataques
+
+```python
+heroi1 = Heroi("Gandalf", 2000, "mago")
+heroi2 = Heroi("Aragorn", 87, "guerreiro")
+heroi3 = Heroi("Legolas", 1000, "arqueiro")
+heroi4 = Heroi("Frodo", 50, "ladrao")
+heroi5 = Heroi("Gimli", 139, "paladino")
+
+heroi1.atacar()  # O mago atacou com magia
+heroi2.atacar()  # O guerreiro atacou com espada
+heroi3.atacar()  # O arqueiro atacou com arco e flecha
+heroi4.atacar()  # O ladrao atacou com facas
+heroi5.atacar()  # O paladino atacou com maça
 ```
 
 ## Código Principal - Classificação por XP
@@ -90,6 +111,43 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
+
+## Código Principal - Classe de Herói
+
+```python
+class Heroi():
+    def __init__ (self, nome, idade, tipo):
+        self.nome = nome
+        self.idade = idade
+        self.tipo = tipo
+
+    def atacar(self):
+        if self.tipo == "mago":
+            ataque = "magia"
+        elif self.tipo == "guerreiro":
+            ataque = "espada"
+        elif self.tipo == "arqueiro":
+            ataque = "arco e flecha"
+        elif self.tipo == "ladrao":
+            ataque = "facas"
+        elif self.tipo == "paladino":
+            ataque = "maça"
+        else:
+            return "Tipo de herói inválido"
+        print(f"O {self.tipo} atacou com {ataque}")
+
+heroi1 = Heroi("Gandalf", 2000, "mago")
+heroi2 = Heroi("Aragorn", 87, "guerreiro")
+heroi3 = Heroi("Legolas", 1000, "arqueiro")
+heroi4 = Heroi("Frodo", 50, "ladrao")
+heroi5 = Heroi("Gimli", 139, "paladino")
+
+heroi1.atacar()
+heroi2.atacar()
+heroi3.atacar()
+heroi4.atacar()
+heroi5.atacar()
 ```
 
 ## Regras do Desafio
